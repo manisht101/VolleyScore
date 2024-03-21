@@ -1,0 +1,129 @@
+/* App.css */
+
+body {
+  background-color: lightgrey;
+}
+
+.container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 70vh;
+}
+
+
+.title {
+  text-align: center;
+  font-size: 8vh;
+}
+
+.sets-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+
+.team-container {
+  width: 40%;
+}
+
+
+.scoreboard {
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+}
+
+
+.team-label {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+
+.score {
+  font-size: 96px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+
+.rotation {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+
+.rotation-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 10%;
+  font-size: 42px;
+  font-weight: bold;
+  padding: 8px 8px;
+  width: 5vw;
+  margin: 0 10px;
+}
+
+
+.ball-icon {
+  width: 30px;
+  height: auto;
+  margin-top: 10px;
+}
+
+
+.sets {
+  display: flex;
+  align-items: center;
+}
+
+
+.set-score {
+  text-align: center;
+  font-size: 48px;
+  font-weight: bold;
+}
+
+
+.set-over {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: red;
+}
+
+
+.set-label {
+  margin-bottom: 10px;
+}
+
+
+.set-button {
+  background-color: #3498db;
+  color: white;
+  text-align: center;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-size: 22px;
+  font-weight: bold;
+  cursor: pointer;
+  width: 100%;
+  margin-left: 0%;
+}
+
+
+.set-button:hover {
+  background-color: #2980b9;
+}

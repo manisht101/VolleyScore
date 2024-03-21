@@ -1,0 +1,78 @@
+/* InputPage.css */
+
+
+  .container1 {
+    background-image: url('E:\volley pro2\client\public\image.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; 
+    background-color: rgba(15, 13, 13, 0.8); 
+    background-blend-mode: soft-light;
+  }
+  
+
+  .form-container {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 400px;
+
+  
+  }
+  
+
+  .form-title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    margin-top: 1px;
+  }
+  
+  
+  .form-input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+
+  .form-button {
+    width: 100%;
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+
+  .form-button:hover {
+    background-color: #0056b3;
+  }
+  
+
+
+.rotation-inputs {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.rotation-input {
+  width: 40px;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
