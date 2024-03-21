@@ -2,7 +2,7 @@
 
 
   .container1 {
-    background-image: url('E:\volley pro2\client\public\image.jpg');
+    background-image: url('../public/image.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     display:flex;
