@@ -1,147 +1,188 @@
-/* ScoringPage.css */
-
 .container {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    height: 70vh;
-  }
-  
-  body {
-    background-color: lightgrey;
-  }
-  .title{
-    text-align: center;
-    font-size: 8vh;
-  }
-  .sets-container {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-  }
-  
-  .team-container {
-    width: 40%;
-  }
-  
-  .scoreboard {
-    background-color: #f0f0f0;
-    border-radius: 10px;
-    padding: 20px;
-    text-align: center;
-  }
-  
-  .team-label {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-  
-  .score {
-    font-size: 96px;
-    font-weight: bold;
-    margin-bottom: 20px;
-  }
-  
-  .rotation {
-    text-align: left;
-    margin-bottom: 20px;
-  }
-  
-  .rotation-row {
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .button {
-    background-color: #4caf50;
-    color: white;
-    border: none;
-    border-radius: 10%;
-    font-size: 42px;
-    font-weight: bold;
-    padding: 8px 8px;
-    width: 5vw;
-    margin: 0 10px;
-  }
-  
-  .ball-icon {
-    width: 30px;
-    height: auto;
-    margin-top: 10px;
-  }
-  
-  .sets {
-    display: flex;
-    align-items: center;
-  }
-  
-  .set-score{
-    text-align: center;
-    font-size: 48px;
-    font-weight: bold;
-  }
-  
-  .set-over {
-    text-align: center;
-    font-size: 24px;
-    font-weight: bold;
-    color: red;
-  }
-  
-  .set-label {
-    margin-bottom: 10px;
-  }
-  
-  .set-button {
-    background-color: #3498db;
-    color: white;
-    text-align: center;
-    border: none;
-    border-radius: 10px;
-    padding: 10px 20px;
-    font-size: 22px;
-    font-weight: bold;
-    cursor: pointer;
-    width: 100%;
-    margin-left: 0%;
-  }
-  
-  .set-button:hover {
-    background-color: #2980b9;
-  }
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 70vh;
+}
 
-  .result-container
-  {
-    height: 100vh;
-    width: 100vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .result {
-    text-align: center;
-    font-size: 50px;
-    font-weight: bold;
-    color: rgb(2, 19, 14);
-  }
+body {
+  background-color: lightgrey;
+}
 
-  .setpoint {
-    text-align: center;
-    font-size: 80px;
-    font-weight: bold;
-    color: rgb(139, 17, 33);
-  }
-  
+.title {
+  text-align: center;
+  font-size: 8vh;
+}
 
-  .ball-1{
-    position: absolute;
-    bottom: anchor(top);
-  }
+.sets-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
 
-  .ball-2{
-    position: absolute;
-    bottom: anchor(top);
-  }
+.team-container {
+  width: 40%;
+}
+
+.scoreboard {
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+}
+
+.team-label {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.score {
+  font-size: 96px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.rotation {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.rotation-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 10%;
+  font-size: 42px;
+  font-weight: bold;
+  padding: 8px 8px;
+  width: 5vw;
+  margin: 0 10px;
+}
+
+.ball-icon {
+  width: 30px;
+  height: auto;
+  margin-top: 10px;
+}
+
+.sets {
+  display: flex;
+  align-items: center;
+}
+
+.set-score {
+  text-align: center;
+  font-size: 48px;
+  font-weight: bold;
+}
+
+.set-over {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: red;
+}
+
+.set-label {
+  margin-bottom: 10px;
+}
+
+.set-button {
+  background-color: #3498db;
+  color: white;
+  text-align: center;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-size: 22px;
+  font-weight: bold;
+  cursor: pointer;
+  width: 100%;
+  margin-left: 0%;
+}
+
+.set-button:hover {
+  background-color: #2980b9;
+}
+
+.result-container {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.result {
+  text-align: center;
+  font-size: 50px;
+  font-weight: bold;
+  color: rgb(2, 19, 14);
+}
+
+.setpoint {
+  text-align: center;
+  font-size: 80px;
+  font-weight: bold;
+  color: rgb(139, 17, 33);
+}
+
+.substitution-container {
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.substitution-container h2 {
+  margin-bottom: 2px;
+}
+
+.substitution-container input {
+  width: 100px;
+  height: 30px;
+  margin-bottom: 1px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 1px;
+}
+
+.substitution-container button {
+
+  background-color: #007bff;
+  width: 50px;
+  height: 40px;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  /*border-radius: 4px;
+  padding: 8px 16px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer; */
+}
+
+.substitution-container button:hover {
+  background-color: #0056b3;
+}
+.inputbox{ 
+ size: 20px
+}
+
+.substitution-flex {
+  display: flex;
+  width: 100%;
+  /* justify-content: space-around; */
+
+}
+
+.substitution-flex > * {
+  margin-left: 0.25rem;
+}

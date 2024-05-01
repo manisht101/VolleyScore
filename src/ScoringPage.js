@@ -27,6 +27,14 @@ class ScoringPage extends Component {
       setSummary: '',
       winner: '',
       numberOfSets: this.props.numberOfSets,
+      substitutionA: {
+        substitutedPlayer: '',
+        enteringPlayer: ''
+      },
+      substitutionB: {
+        substitutedPlayer: '',
+        enteringPlayer: ''
+      }
     };
   }
 
@@ -97,15 +105,22 @@ class ScoringPage extends Component {
       });
     }
     if (operator === '-') {
-      this.setState({
-        ...this.state,
-        scores: {
-          ...scores,
-          A: A - 1,
-        },
-      });
-    }
-  };
+      let newScore = A - 1;
+    let newRotation = RotationA; // Restore rotation
+    newRotation.unshift(newRotation.pop());
+    this.setState({
+      ...this.state,
+      scores: {
+        ...scores,
+        A: newScore,
+      },
+      rotations: {
+        ...rotations,
+        A: newRotation,
+      },
+    });
+  }
+};
 
   onScoreboardChangeB = (operator) => {
     const {
@@ -140,15 +155,22 @@ class ScoringPage extends Component {
       });
     }
     if (operator === '-') {
-      this.setState({
-        ...this.state,
-        scores: {
-          ...scores,
-          B: B - 1,
-        },
-      });
-    }
-  };
+      let newScore = B - 1;
+    let newRotation = RotationB; // Restore rotation
+    newRotation.unshift(newRotation.pop());
+    this.setState({
+      ...this.state,
+      scores: {
+        ...scores,
+        B: newScore,
+      },
+      rotations: {
+        ...rotations,
+        B: newRotation,
+      },
+    });
+  }
+};
 
   checkMatchOver = () => {
     const { sets, numberOfSets } = this.state;
@@ -185,17 +207,57 @@ class ScoringPage extends Component {
     );
   };
 
+  handleSubstitutionA = () => {
+    const { substitutionA, rotations } = this.state;
+    const { substitutedPlayer, enteringPlayer } = substitutionA;
+  
+    const newRotationA = rotations.A.map(player => {
+      if (player === substitutedPlayer) {
+        return enteringPlayer;
+      }
+      return player;
+    });
+  
+    this.setState({
+      rotations: {
+        ...rotations,
+        A: newRotationA
+      }
+    });
+  };
+  
+  handleSubstitutionB = () => {
+    const { substitutionB, rotations } = this.state;
+    const { substitutedPlayer, enteringPlayer } = substitutionB;
+  
+    const newRotationB = rotations.B.map(player => {
+      if (player === substitutedPlayer) {
+        return enteringPlayer;
+      }
+      return player;
+    });
+  
+    this.setState({
+      rotations: {
+        ...rotations,
+        B: newRotationB
+      }
+    });
+  };
+
   render() {
-    const {
+    const { 
+      substitutionA, 
+      substitutionB,
       scores: { A: ScoreA, B: ScoreB },
       setOver,
       rotations: { A: RotationA, B: RotationB },
       currentlyServing,
       sets: { A: SetsA, B: SetsB },
+      matchOver
     } = this.state;
 
-    // ;
-    const { matchOver } = this.state;
+    
 
     if (matchOver) {
       return (
@@ -204,7 +266,6 @@ class ScoringPage extends Component {
         </div>
       );
     }
-    
   
     return (
       <div>
@@ -218,14 +279,14 @@ class ScoringPage extends Component {
                 Rotation
                 <hr />
                 <div className="rotation-row">
-                  <span>4: {RotationA[3]}</span>
-                  <span>3: {RotationA[2]}</span>
-                  <span>2: {RotationA[1]}</span>
+                  <span>{RotationA[3]}</span>
+                  <span>{RotationA[2]}</span>
+                  <span>{RotationA[1]}</span>
                 </div>
                 <div className="rotation-row">
-                  <span>5: {RotationA[4]}</span>
-                  <span>6: {RotationA[5]}</span>
-                  <span>1: {RotationA[0]}</span>
+                  <span>{RotationA[4]}</span>
+                  <span>{RotationA[5]}</span>
+                  <span>{RotationA[0]}</span>
                 </div>
               </div>
               <button className="button round" disabled={setOver} onClick={() => this.onScoreboardChangeA('+')}>
@@ -235,6 +296,34 @@ class ScoringPage extends Component {
                 -
               </button>
               {currentlyServing === 'A' && <img src="ball.png" alt="Ball" className="ball-icon ball-1" anchor="a-minus" />}
+            </div>
+            <div className="substitution-container">
+              <h2>Substitution for Team A:</h2>
+              <div className="substitution-flex">
+              <input
+                type="text"
+                placeholder="Substituted Player"
+                value={substitutionA.substitutedPlayer}
+                onChange={(e) => this.setState({
+                  substitutionA: {
+                    ...substitutionA,
+                    substitutedPlayer: e.target.value
+                  }
+                })}
+              />
+              <button onClick={this.handleSubstitutionA}><svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-repeat"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 12v-3a3 3 0 0 1 3 -3h13m-3 -3l3 3l-3 3" /><path d="M20 12v3a3 3 0 0 1 -3 3h-13m3 3l-3 -3l3 -3" /></svg></button>
+              <input
+                type="text"
+                placeholder="Entering Player"
+                value={substitutionA.enteringPlayer}
+                onChange={(e) => this.setState({
+                  substitutionA: {
+                    ...substitutionA,
+                    enteringPlayer: e.target.value
+                  }
+                })}
+              />
+              </div>
             </div>
           </div>
           <div>
@@ -256,14 +345,14 @@ class ScoringPage extends Component {
                 Rotation
                 <hr />
                 <div className="rotation-row">
-                  <span>4: {RotationB[3]}</span>
-                  <span>3: {RotationB[2]}</span>
-                  <span>2: {RotationB[1]}</span>
+                  <span>{RotationB[3]}</span>
+                  <span>{RotationB[2]}</span>
+                  <span>{RotationB[1]}</span>
                 </div>
                 <div className="rotation-row">
-                  <span>5: {RotationB[4]}</span>
-                  <span>6: {RotationB[5]}</span>
-                  <span>1: {RotationB[0]}</span>
+                  <span>{RotationB[4]}</span>
+                  <span>{RotationB[5]}</span>
+                  <span>{RotationB[0]}</span>
                 </div>
               </div>
               <button className="button round" disabled={setOver} onClick={() => this.onScoreboardChangeB('+')}>
@@ -273,6 +362,34 @@ class ScoringPage extends Component {
                 -
               </button>
               {currentlyServing === 'B' && <img src="ball.png" alt="Ball" className="ball-icon ball-2" anchor="b-minus" />}
+            </div>
+            <div className="substitution-container">
+              <h2>Substitution for Team B:</h2>
+              <div className="substitution-flex">
+              <input
+                type="text"
+                placeholder="Substituted Player"
+                value={substitutionB.substitutedPlayer}
+                onChange={(e) => this.setState({
+                  substitutionB: {
+                    ...substitutionB,
+                    substitutedPlayer: e.target.value
+                  }
+                })}
+              />
+              <button onClick={this.handleSubstitutionB}><svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-repeat"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 12v-3a3 3 0 0 1 3 -3h13m-3 -3l3 3l-3 3" /><path d="M20 12v3a3 3 0 0 1 -3 3h-13m3 3l-3 -3l3 -3" /></svg></button>
+              <input
+                type="text"
+                placeholder="Entering Player"
+                value={substitutionB.enteringPlayer}
+                onChange={(e) => this.setState({
+                  substitutionB: {
+                    ...substitutionB,
+                    enteringPlayer: e.target.value
+                  }
+                })}
+              />
+              </div>
             </div>
           </div>
         </div>

@@ -127,3 +127,9 @@ body {
 .set-button:hover {
   background-color: #2980b9;
 }
+
+.substitution-flex {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
